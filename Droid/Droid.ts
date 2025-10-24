@@ -1,8 +1,4 @@
-interface State {
-
-}
-
-interface Command {
+export interface Command {
     module: string,
     method: string,
     data: string,
@@ -11,5 +7,5 @@ interface Command {
 
 export function getCommand(_state: object): Command {
 console.log(_state);
-return {module: "Chassis", method: "moving", data: "forward"}
+return {module: "Chassis", method: "move", data: "forward"}
 }
