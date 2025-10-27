@@ -1,30 +1,47 @@
 "use strict";
 var Canvas;
 (function (Canvas) {
-    // window.addEventListener("load", handleLoad)
+    window.addEventListener("load", handleLoad);
     const canvas = document.querySelector("canvas");
     const crc2 = canvas.getContext("2d");
-    crc2.beginPath();
-    crc2.moveTo(2.1, 1);
-    crc2.lineTo(2.1, 10);
-    crc2.moveTo(4.5, 1);
-    crc2.lineTo(4.5, 10);
-    crc2.moveTo(7.5, 1);
-    crc2.lineTo(10.5, 10);
-    crc2.stroke();
+    function handleLoad() {
+        crc2.fillStyle = "#000000ff";
+        crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
+        crc2.translate(canvas.width / 2, canvas.height / 2);
+        drawCoordinateSystem();
+    }
+    function drawCoordinateSystem() {
+        const axisLength = 200;
+        const notchSpacing = 10;
+        const notchLength = 5;
+        crc2.strokeStyle = "black";
+        crc2.lineWidth = 1;
+        crc2.beginPath();
+        crc2.moveTo(-axisLength, 0);
+        crc2.lineTo(axisLength, 0);
+        crc2.moveTo(0, -axisLength);
+        crc2.lineTo(0, axisLength);
+        crc2.stroke();
+        crc2.beginPath();
+        for (let i = -axisLength; i <= axisLength; i += notchSpacing) {
+            if (i === 0)
+                continue;
+            crc2.moveTo(i, -notchLength);
+            crc2.lineTo(i, notchLength);
+            crc2.moveTo(-notchLength, i);
+            crc2.lineTo(notchLength, i);
+        }
+        crc2.stroke();
+        crc2.closePath();
+    }
+    function applyTransformation(translateX, translateY, rotateDeg, scale) {
+        crc2.setTransform(1, 0, 0, 1, 0, 0);
+        crc2.translate(canvas.width / 2 + translateX, canvas.height / 2 + translateY);
+        crc2.rotate((rotateDeg * Math.PI) / 180);
+        crc2.scale(scale, scale);
+        crc2.fillStyle = "#000000ff";
+        crc2.fillRect(-canvas.width / 2, -canvas.height / 2, canvas.width, canvas.height);
+        drawCoordinateSystem();
+    }
+    Canvas.applyTransformation = applyTransformation;
 })(Canvas || (Canvas = {}));
-//     function handleLoad(){
-// crc2.fillStyle = "#00d635ff";
-//         crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
-//         crc2.beginPath();
-//         crc2.arc(150, 100, 20, 0, 1.2 * Math.PI);
-//         crc2.ellipse(0, 0, 30, 40, 3, 15, 15);
-//         crc2.moveTo(10, 10);
-//         crc2.lineTo(200, 10);
-//         crc2.lineTo(10, 60);
-//         crc2.fillText("Hallo", 30, 30);
-//         new Path2D()
-//         crc2.strokeText("Hello", 50, 40);
-//         crc2.closePath();
-//         crc2.stroke();
-//     }
