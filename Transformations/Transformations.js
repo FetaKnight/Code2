@@ -5,9 +5,9 @@ var Canvas;
     const canvas = document.querySelector("canvas");
     const crc2 = canvas.getContext("2d");
     function handleLoad() {
-        crc2.fillStyle = "#000000ff";
-        crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
-        crc2.translate(canvas.width / 2, canvas.height / 2);
+        // crc2.fillStyle = "#ffffff";
+        // crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
+        // crc2.translate(canvas.width / 2, canvas.height / 2);
         drawCoordinateSystem();
     }
     function drawCoordinateSystem() {
@@ -39,9 +39,6 @@ var Canvas;
         crc2.translate(canvas.width / 2 + translateX, canvas.height / 2 + translateY);
         crc2.rotate((rotateDeg * Math.PI) / 180);
         crc2.scale(scale, scale);
-        crc2.fillStyle = "#000000ff";
-        crc2.fillRect(-canvas.width / 2, -canvas.height / 2, canvas.width, canvas.height);
-        drawCoordinateSystem();
     }
     Canvas.applyTransformation = applyTransformation;
 })(Canvas || (Canvas = {}));

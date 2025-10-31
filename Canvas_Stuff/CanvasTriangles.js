@@ -7,7 +7,7 @@ var Canvas;
         const crc2 = canvas.getContext("2d");
         canvas.width = 1650;
         canvas.height = 900;
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 200; i++) {
             const x1 = Math.floor(Math.random() * canvas.width);
             const y1 = Math.floor(Math.random() * canvas.height);
             const x2 = Math.floor(Math.random() * canvas.width);
