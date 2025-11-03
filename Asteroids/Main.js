@@ -18,7 +18,7 @@ var Asteroids;
         Asteroids.crc2.lineWidth = Asteroids.linewidth;
         Asteroids.createPaths();
         console.log("Asteroids paths: ", Asteroids.asteroidPaths);
-        createAsteroids(42);
+        createAsteroids(10000);
         // createShip();
         canvas.addEventListener("mousedown", shootProjectile);
         canvas.addEventListener("mouseup", shootLaser);

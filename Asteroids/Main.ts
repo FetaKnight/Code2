@@ -25,7 +25,7 @@ namespace Asteroids {
         createPaths();
         console.log("Asteroids paths: ", asteroidPaths);
 
-        createAsteroids(42);
+        createAsteroids(10000);
         // createShip();
 
         canvas.addEventListener("mousedown", shootProjectile);
