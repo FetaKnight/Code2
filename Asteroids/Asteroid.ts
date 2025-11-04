@@ -2,7 +2,6 @@ namespace Asteroids {
 
     export class Asteroid extends Moveable {
 
-        public position: Vector;
         public velocity: Vector;
         public type: number = 0;
         public size: number = 0;
@@ -11,11 +10,6 @@ namespace Asteroids {
             super(_position);
 
             console.log("Asteroid constructor");
-
-            if(_position)
-                this.position = _position.copy();
-            else
-                this.position = new Vector(0,0);
 
             this.velocity = new Vector (0,0);
             this.velocity.random(100, 200);

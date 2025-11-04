@@ -25,8 +25,9 @@ namespace Asteroids {
         createPaths();
         console.log("Asteroids paths: ", asteroidPaths);
 
-        createAsteroids(10000);
+        createAsteroids(5);
         // createShip();
+        createUfo();
 
         canvas.addEventListener("mousedown", shootProjectile);
         canvas.addEventListener("mouseup", shootLaser);
@@ -36,6 +37,11 @@ namespace Asteroids {
         window.setInterval(update, 10);
     }
 
+    function createUfo(): void {
+        console.log("Create ufo");
+        const ufo: Ufo = new Ufo();
+        moveables.push(ufo);
+    }
 
     function shootProjectile(_event: MouseEvent): void {
         console.log("Shoot laser");
@@ -82,8 +88,6 @@ namespace Asteroids {
         _asteroid.expendable = true;
 
     }
-
-    
 
     function update(): void {
         //console.log("Update");

@@ -2,17 +2,12 @@
 var Asteroids;
 (function (Asteroids) {
     class Asteroid extends Asteroids.Moveable {
-        position;
         velocity;
         type = 0;
         size = 0;
         constructor(_size, _position) {
             super(_position);
             console.log("Asteroid constructor");
-            if (_position)
-                this.position = _position.copy();
-            else
-                this.position = new Asteroids.Vector(0, 0);
             this.velocity = new Asteroids.Vector(0, 0);
             this.velocity.random(100, 200);
             this.type = Math.floor(Math.random() * 4);

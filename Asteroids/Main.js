@@ -18,13 +18,19 @@ var Asteroids;
         Asteroids.crc2.lineWidth = Asteroids.linewidth;
         Asteroids.createPaths();
         console.log("Asteroids paths: ", Asteroids.asteroidPaths);
-        createAsteroids(10000);
+        createAsteroids(5);
         // createShip();
+        createUfo();
         canvas.addEventListener("mousedown", shootProjectile);
         canvas.addEventListener("mouseup", shootLaser);
         // canvas.addEventListener("keypress", handleKeypress);
         // canvas.addEventListener("mousemove", setHeading);
         window.setInterval(update, 10);
+    }
+    function createUfo() {
+        console.log("Create ufo");
+        const ufo = new Asteroids.Ufo();
+        moveables.push(ufo);
     }
     function shootProjectile(_event) {
         console.log("Shoot laser");
