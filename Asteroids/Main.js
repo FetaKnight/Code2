@@ -21,7 +21,7 @@ var Asteroids;
         createAsteroids(5);
         // createShip();
         createUfo();
-        canvas.addEventListener("mousedown", shootProjectile);
+        canvas.addEventListener("ufoShoots", handleUfoShot);
         canvas.addEventListener("mouseup", shootLaser);
         // canvas.addEventListener("keypress", handleKeypress);
         // canvas.addEventListener("mousemove", setHeading);
@@ -39,6 +39,9 @@ var Asteroids;
         velocity.random(100, 100);
         const projectile = new Asteroids.Projectile(origin, velocity);
         moveables.push(projectile);
+    }
+    function handleUfoShot(_event) {
+        const ufo = _event.detail.ufo;
     }
     function shootLaser(_event) {
         console.log("Shoot laser");

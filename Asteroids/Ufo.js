@@ -2,7 +2,7 @@
 var Asteroids;
 (function (Asteroids) {
     class Ufo extends Asteroids.Moveable {
-        speed = 50;
+        speed = 5;
         constructor() {
             super();
             this.position = new Asteroids.Vector(0, Math.random() * Asteroids.crc2.canvas.height);
@@ -25,6 +25,8 @@ var Asteroids;
         }
         shoot() {
             console.log("Ufo shoots");
+            const event = new CustomEvent("ufoShoots", { detail: { ufo: this } });
+            Asteroids.crc2.canvas.dispatchEvent(event);
         }
     }
     Asteroids.Ufo = Ufo;

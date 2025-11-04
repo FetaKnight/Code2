@@ -1,6 +1,6 @@
 namespace Asteroids {
     export class Ufo extends Moveable {
-            public speed: number = 50;
+            public speed: number = 5;
 
             public constructor() {
                 super();
@@ -29,6 +29,8 @@ namespace Asteroids {
 
         public shoot(): void {
             console.log("Ufo shoots");
+            const event: CustomEvent = new CustomEvent("ufoShoots", {detail: {ufo: this}});
+            crc2.canvas.dispatchEvent(event);
         }
     }
 }

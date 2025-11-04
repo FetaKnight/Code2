@@ -29,7 +29,7 @@ namespace Asteroids {
         // createShip();
         createUfo();
 
-        canvas.addEventListener("mousedown", shootProjectile);
+        canvas.addEventListener("ufoShoots", handleUfoShot);
         canvas.addEventListener("mouseup", shootLaser);
         // canvas.addEventListener("keypress", handleKeypress);
         // canvas.addEventListener("mousemove", setHeading);
@@ -50,6 +50,10 @@ namespace Asteroids {
         velocity.random(100, 100);
         const projectile: Projectile = new Projectile(origin, velocity);
         moveables.push(projectile);
+    }
+
+    function handleUfoShot(_event: Event): void{
+        const ufo: Ufo = (<CustomEvent>_event).detail.ufo; 
     }
 
 
